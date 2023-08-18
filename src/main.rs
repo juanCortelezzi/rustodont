@@ -89,7 +89,8 @@ async fn main() -> Result<(), sqlx::Error> {
     // let mut connection = SqliteConnection::connect("sqlite://sqeel.db").await?;
     let pool = SqlitePoolOptions::new()
         .max_connections(5)
-        .connect("sqlite://sqeel.db")
+        // .connect("sqlite://sqeel.db")
+        .connect("file::memory:")
         .await?;
 
     tracing_subscriber::fmt::init();
